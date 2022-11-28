@@ -1,0 +1,17 @@
+<div>
+  <form method='GET' action={% url 'home'%}>
+    <input type="text" placeholder="search here" name="searchTerm" />
+    <input type="submit" />
+  </form>
+
+  <div>
+    <div>the total rooms are {{room_count}}</div>
+    {%for room in rooms%}
+    <div>
+      <h5>{{room.name}}</h5>
+      <a href="{% url 'updateRoom' room.id%}">edit</a>
+      <a href="{% url 'deleteRoom' room.id%}">delete</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
